@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>vendaingressos</OriginalElement>
+  <nodes>
+    <node x="-693.5470852017934" y="796.3699551569507">vendaingressos.Controller</node>
+    <node x="-1033.6008968609865" y="390.3192825112107">vendaingressos.Ingresso</node>
+    <node x="-1068.1008968609865" y="1056.7914798206277">vendaingressos.Usuario</node>
+    <node x="-1495.6547085201796" y="707.7219730941705">vendaingressos.Evento</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Evento" relationship="TO_MANY">
+      <point x="-255.0" y="-16.647982062780216" />
+      <point x="161.5" y="0.0" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Usuario" relationship="CREATE">
+      <point x="15.0" y="129.0" />
+      <point x="-423.5470852017934" y="1392.7914798206277" />
+      <point x="135.0" y="15.0" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Evento" relationship="CREATE">
+      <point x="-255.0" y="0.0" />
+      <point x="161.5" y="16.647982062780216" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Ingresso" relationship="CREATE">
+      <point x="0.0" y="-129.0" />
+      <point x="-438.5470852017934" y="615.3192825112108" />
+      <point x="100.5" y="0.0" />
+    </edge>
+    <edge source="vendaingressos.Ingresso" target="vendaingressos.Evento" relationship="TO_ONE">
+      <point x="0.0" y="-225.0" />
+      <point x="-933.1008968609865" y="364.33183856502245" />
+      <point x="-1414.9047085201796" y="364.33183856502245" />
+      <point x="-80.75" y="201.0" />
+    </edge>
+    <edge source="vendaingressos.Usuario" target="vendaingressos.Ingresso" relationship="TO_MANY">
+      <point x="0.0" y="-321.0" />
+      <point x="0.0" y="-225.0" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Usuario" relationship="TO_MANY">
+      <point x="0.0" y="129.0" />
+      <point x="-438.5470852017934" y="1377.7914798206277" />
+      <point x="135.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.6605450236966824" showDependencies="true" x="-966.2663677130045" y="1044.7695067264574" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
