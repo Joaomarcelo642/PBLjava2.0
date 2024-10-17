@@ -27,7 +27,8 @@ public class Evento {
     private String descricao;
     private Date data;
     private List<String> assentosdisponiveis = new ArrayList<>();
-    private List<Feedback> feedbacks = new ArrayList<>();
+    private List<Feedback> feedbacks;
+    private DataStore dataStore;
 
     /**
      * Construtor da classe Evento.
@@ -37,9 +38,11 @@ public class Evento {
      * @param data A data do evento.
      */
     public Evento(String nome, String descricao, Date data) {
+        dataStore = new DataStore();
         this.nome = nome;
         this.descricao = descricao;
         this.data = data;
+        feedbacks = dataStore.carregarFeedbacks();
     }
 
     // Métodos GETTERs e SETTERs

@@ -13,6 +13,9 @@
 
 package vendaingressos;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -23,12 +26,19 @@ import java.util.Date;
  */
 public class Controller {
     // Lista de Usuários e Eventos
-    private List<Usuario> usuarios = new ArrayList<>();
-    private List<Evento> eventos = new ArrayList<>();
+    private List<Usuario> usuarios;
+    private List<Evento> eventos;
+    private List<Ingresso> ingressos;
+    private List<Compra> compras;
+    private DataStore dataStore;
 
-    // Arquivos JSON
-    private final String USUARIOS = "usuarios.json";
-    private final String EVENTOS = "eventos.json";
+    public Controller() {
+        dataStore = new DataStore();
+        usuarios = dataStore.carregarUsuarios();
+        eventos = dataStore.carregarEventos();
+        ingressos = dataStore.carregarIngressos();
+        compras = dataStore.carregarCompras();
+    }
 
     // Métodos para os testes
 
@@ -46,6 +56,7 @@ public class Controller {
     public Usuario cadastrarUsuario(String login, String senha, String nome, String cpf, String email, Boolean admin) {
         Usuario usuario = new Usuario(login, senha, nome, cpf, email, admin);
         usuarios.add(usuario);
+        dataStore.salvarUsuarios(usuarios);
         return usuario;
     }
 
@@ -63,6 +74,7 @@ public class Controller {
         if (usuario.getAdmin()) {
             Evento evento = new Evento(nome, descricao, data);
             eventos.add(evento);
+            dataStore.salvarEventos(eventos);
             return evento;
         } else {
             throw new SecurityException("Somente administradores podem cadastrar eventos.");
@@ -79,6 +91,7 @@ public class Controller {
         for (Evento evento : eventos) {
             if (evento.getNome().equals(nomeEvento)) {
                 evento.adicionarAssento(assento);
+                dataStore.salvarEventos(eventos);
                 return;
             }
         }
@@ -99,7 +112,11 @@ public class Controller {
                 if (evento.getAssentosDisponiveis().contains(assento)) {
                     Ingresso ingresso = new Ingresso(evento, 1, assento);
                     usuario.getIngressos().add(ingresso);
+                    compras.add(new Compra(ingresso, usuario, true));
                     evento.removerAssento(assento);
+                    dataStore.salvarIngressos(ingressos);
+                    dataStore.salvarUsuarios(usuarios);
+                    dataStore.salvarCompras(compras);
                     return ingresso;
                 } else {
                     throw new IllegalArgumentException("Assento " + assento + " não disponível.");
@@ -125,14 +142,22 @@ public class Controller {
             throw new IllegalArgumentException("Ingresso não encontrado para este usuário.");
         }
 
-        boolean cancelado = ingresso.cancelar();
-        if (cancelado) {
-            usuario.getIngressos().remove(ingresso);
-            ingresso.getEvento().adicionarAssento(ingresso.getAssento());
-            return true;
-        } else {
-            return false;
+        for (Compra compra : compras) {
+            if (compra.getUsuario().equals(usuario) && compra.getIngresso().equals(ingresso)) {
+                boolean cancelado = ingresso.cancelar();
+                if (cancelado) {
+                    usuario.getIngressos().remove(ingresso);
+                    ingresso.getEvento().adicionarAssento(ingresso.getAssento());
+                    compra.cancelarCompra();
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                throw new RuntimeException("Erro no cancelamento da compra");
+            }
         }
+        return null;
     }
 
     /**
@@ -157,5 +182,7 @@ public class Controller {
     public void adicionarFeedback(Evento evento, Usuario usuario, String avaliacao, String comentario){
         Feedback feedback = new Feedback(evento, usuario, avaliacao, comentario);
         evento.getFeedbacks().add(feedback);
+        dataStore.salvarFeedbacks(evento.getFeedbacks());
     }
+
 }

@@ -31,7 +31,8 @@ public class Usuario {
     private String email;
     private Boolean admin;
     private List<Ingresso> ingressos = new ArrayList<>();
-    private List<Pagamento> formasDePagamento = new ArrayList<>();
+    private List<Pagamento> formasDePagamento;
+    private DataStore dataStore;
 
     /**
      * Construtor da classe Usuario.
@@ -44,12 +45,14 @@ public class Usuario {
      * @param admin Indica se o usuário é administrador (true) ou não (false).
      */
     public Usuario(String login, String senha, String nome, String cpf, String email, Boolean admin) {
+        dataStore = new DataStore();
         this.login = login;
         this.senha = senha;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.admin = admin;
+        formasDePagamento = dataStore.carregarPagamentos();
     }
 
     // Métodos GETTERs e SETTERs
@@ -211,6 +214,7 @@ public class Usuario {
      */
     public void adicionarFormaPagamento(Pagamento forma) {
         formasDePagamento.add(forma);
+        dataStore.salvarFormasDEPagamento(formasDePagamento);
     }
 
     /**
