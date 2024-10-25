@@ -69,6 +69,7 @@ public class ControllerTest {
 
         Ingresso ingresso = controller.comprarIngresso(usuario, "Show de Rock", "A1");
 
+
         assertNotNull(ingresso);
         assertEquals("Show de Rock", ingresso.getEvento().getNome());
         assertEquals("A1", ingresso.getAssento());
@@ -133,5 +134,42 @@ public class ControllerTest {
         List<Ingresso> ingressos = controller.listarIngressosComprados(usuario);
 
         assertEquals(1, ingressos.size());
+    }
+
+    @Test
+    public void testAdicionarFormaDePagamento() {
+        Controller controller = new Controller();
+        Usuario usuario = controller.cadastrarUsuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
+
+        controller.adicionarCartao(usuario, "1234567812345678", "John Doe");
+
+        assertNotNull(usuario.getFormasDePagamento());
+        assertEquals(1, usuario.getFormasDePagamento().size());
+        assertEquals("Cartão de Crédito", usuario.getFormasDePagamento().get(0).getForma());
+
+        controller.adicionarBoleto(usuario, "BOLETO-123456");
+
+        assertEquals(2, usuario.getFormasDePagamento().size());
+        assertEquals("Boleto Bancário", usuario.getFormasDePagamento().get(1).getForma());
+        }
+
+    @Test
+    public void testAdicionarFeedback() {
+        Controller controller = new Controller();
+        Usuario usuario = controller.cadastrarUsuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2024, Calendar.SEPTEMBER, 10);
+        Date data = calendar.getTime();
+
+        Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
+        Evento evento =controller.cadastrarEvento(admin, "Show de Rock", "Banda XYZ", data);
+
+        controller.adicionarFeedback(evento, usuario, "5", "Ótimo evento!");
+
+        assertNotNull(evento.getFeedbacks());
+        assertEquals(1, evento.getFeedbacks().size());
+        assertEquals("Ótimo evento!", evento.getFeedbacks().get(0).getComentario());
+        assertEquals("5", evento.getFeedbacks().get(0).getAvaliacao());
     }
 }

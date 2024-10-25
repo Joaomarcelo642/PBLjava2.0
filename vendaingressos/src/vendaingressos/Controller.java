@@ -28,7 +28,6 @@ public class Controller {
     // Lista de Usuários e Eventos
     private List<Usuario> usuarios;
     private List<Evento> eventos;
-    private List<Ingresso> ingressos;
     private List<Compra> compras;
     private DataStore dataStore;
 
@@ -36,7 +35,6 @@ public class Controller {
         dataStore = new DataStore();
         usuarios = dataStore.carregarUsuarios();
         eventos = dataStore.carregarEventos();
-        ingressos = dataStore.carregarIngressos();
         compras = dataStore.carregarCompras();
     }
 
@@ -112,11 +110,16 @@ public class Controller {
                 if (evento.getAssentosDisponiveis().contains(assento)) {
                     Ingresso ingresso = new Ingresso(evento, 1, assento);
                     usuario.getIngressos().add(ingresso);
-                    compras.add(new Compra(ingresso, usuario, true));
-                    evento.removerAssento(assento);
-                    dataStore.salvarIngressos(ingressos);
+
+//                    if (!usuarios.contains(usuario)) {
+//                        usuarios.add(usuario);
+//                    }
+
                     dataStore.salvarUsuarios(usuarios);
+                    compras.add(new Compra(ingresso, usuario));
+                    evento.removerAssento(assento);
                     dataStore.salvarCompras(compras);
+                    dataStore.salvarEventos(eventos);
                     return ingresso;
                 } else {
                     throw new IllegalArgumentException("Assento " + assento + " não disponível.");
@@ -147,8 +150,11 @@ public class Controller {
                 boolean cancelado = ingresso.cancelar();
                 if (cancelado) {
                     usuario.getIngressos().remove(ingresso);
+                    dataStore.salvarUsuarios(usuarios);
                     ingresso.getEvento().adicionarAssento(ingresso.getAssento());
                     compra.cancelarCompra();
+                    dataStore.salvarCompras(compras);
+                    dataStore.salvarEventos(eventos);
                     return true;
                 } else {
                     return false;
@@ -180,9 +186,20 @@ public class Controller {
     }
 
     public void adicionarFeedback(Evento evento, Usuario usuario, String avaliacao, String comentario){
-        Feedback feedback = new Feedback(evento, usuario, avaliacao, comentario);
+        Feedback feedback = new Feedback(usuario, avaliacao, comentario);
         evento.getFeedbacks().add(feedback);
-        dataStore.salvarFeedbacks(evento.getFeedbacks());
+        dataStore.salvarEventos(eventos);
     }
 
+    public void adicionarCartao(Usuario usuario, String numeroCartao, String nome) {
+        Cartao cartao = new Cartao(numeroCartao, nome);
+        usuario.getFormasDePagamento().add(cartao);
+        dataStore.salvarUsuarios(usuarios);
+    }
+
+    public void adicionarBoleto(Usuario usuario, String codigoBoleto) {
+        Boleto boleto = new Boleto(codigoBoleto);
+        usuario.getFormasDePagamento().add(boleto);
+        dataStore.salvarUsuarios(usuarios);
+    }
 }

@@ -1,1 +1,24 @@
-[{"nome":"Show de Rock","descricao":"Banda XYZ","data":"Sep 10, 2025, 10:23:26 PM","assentosdisponiveis":["A1"],"feedbacks":[],"dataStore":{}}]
+[
+  {
+    "nome": "Show de Rock",
+    "descricao": "Banda XYZ",
+    "data": "Sep 10, 2024, 11:05:54 PM",
+    "assentosdisponiveis": [],
+    "feedbacks": [
+      {
+        "usuario": {
+          "login": "johndoe",
+          "senha": "senha123",
+          "nome": "John Doe",
+          "cpf": "12345678901",
+          "email": "john.doe@example.com",
+          "admin": false,
+          "ingressos": [],
+          "formasDePagamento": []
+        },
+        "avaliacao": "5",
+        "comentario": "Ótimo evento!"
+      }
+    ]
+  }
+]

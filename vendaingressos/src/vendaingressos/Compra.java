@@ -9,10 +9,10 @@ public class Compra {
     private Usuario usuario;
     private Boolean confirmacao;
 
-    public Compra(Ingresso ingresso, Usuario usuario, Boolean confirmacao) {
+    public Compra(Ingresso ingresso, Usuario usuario) {
         this.ingresso = ingresso;
         this.usuario = usuario;
-        this.confirmacao = false;
+        this.confirmacao = true;
     }
 
     public Ingresso getIngresso() {

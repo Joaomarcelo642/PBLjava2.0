@@ -1,1 +1,22 @@
-[{"login":"admin","senha":"senha123","nome":"Admin User","cpf":"00000000000","email":"admin@example.com","admin":true,"ingressos":[],"formasDePagamento":[],"dataStore":{}}]
+[
+  {
+    "login": "johndoe",
+    "senha": "senha123",
+    "nome": "John Doe",
+    "cpf": "12345678901",
+    "email": "john.doe@example.com",
+    "admin": false,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  }
+]

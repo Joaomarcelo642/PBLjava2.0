@@ -1,23 +1,14 @@
 package vendaingressos;
 
 public class Feedback {
-    private Evento evento;
     private Usuario usuario;
     private String avaliacao;
     private String comentario;
 
-    public Feedback(Evento evento, Usuario usuario, String avaliacao, String comentario) {
-        this.evento = evento;
+    public Feedback(Usuario usuario, String avaliacao, String comentario) {
         this.usuario = usuario;
         this.avaliacao = avaliacao;
         this.comentario = comentario;
-    }
-
-    public Evento getEvento() {
-        return evento;
-    }
-    public void setEvento(Evento evento) {
-        this.evento = evento;
     }
 
     public Usuario getUsuario() {

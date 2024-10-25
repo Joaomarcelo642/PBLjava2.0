@@ -1,23 +1,17 @@
 package vendaingressos;
 
+import com.google.gson.annotations.Expose;
+
 public class Cartao extends Pagamento {
-    private Usuario usuario;
     private String numeroCartao;
     private String nome;
 
-    public Cartao(Usuario usuario, String numeroCartao, String nome) {
-        super("Cartão de crédito");
-        this.usuario = usuario;
+    public Cartao(String numeroCartao, String nome) {
+        super("Cartão de Crédito");
         this.numeroCartao = numeroCartao;
         this.nome = nome;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
     public String getNumero() {
         return numeroCartao;

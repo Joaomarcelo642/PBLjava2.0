@@ -16,6 +16,9 @@ package vendaingressos;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import vendaingressos.Pagamento;
+import vendaingressos.Cartao;
+import vendaingressos.Boleto;
 
 /**
  * A classe Usuario representa um usuário no sistema de venda de ingressos.
@@ -31,8 +34,7 @@ public class Usuario {
     private String email;
     private Boolean admin;
     private List<Ingresso> ingressos = new ArrayList<>();
-    private List<Pagamento> formasDePagamento;
-    private DataStore dataStore;
+    private List<Pagamento> formasDePagamento = new ArrayList<>();
 
     /**
      * Construtor da classe Usuario.
@@ -45,14 +47,12 @@ public class Usuario {
      * @param admin Indica se o usuário é administrador (true) ou não (false).
      */
     public Usuario(String login, String senha, String nome, String cpf, String email, Boolean admin) {
-        dataStore = new DataStore();
         this.login = login;
         this.senha = senha;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.admin = admin;
-        formasDePagamento = dataStore.carregarPagamentos();
     }
 
     // Métodos GETTERs e SETTERs
@@ -183,6 +183,13 @@ public class Usuario {
         this.ingressos = ingressos;
     }
 
+    public List<Pagamento> getFormasDePagamento() {
+        return formasDePagamento;
+    }
+    public void setFormasDePagamento(List<Pagamento> formasDePagamento) {
+        this.formasDePagamento = formasDePagamento;
+    }
+
     // Métodos para os testes
 
     /**
@@ -209,13 +216,6 @@ public class Usuario {
         }
     }
 
-    /**
-     * Adiciona uma nova forma de pagamento.
-     */
-    public void adicionarFormaPagamento(Pagamento forma) {
-        formasDePagamento.add(forma);
-        dataStore.salvarFormasDEPagamento(formasDePagamento);
-    }
 
     /**
      * Lista as formas de pagamento disponíveis.

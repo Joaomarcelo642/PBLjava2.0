@@ -13,13 +13,14 @@
 
 package vendaingressos;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * A classe Ingresso representa um ingresso para um evento, contendo informações
  * como evento associado, preço, assento e estado (ativo ou inativo).
  */
-public class Ingresso {
+public class Ingresso implements Serializable {
     // Atributos
     private Evento evento;
     private double preco;
@@ -101,7 +102,7 @@ public class Ingresso {
      *
      * @return true se o ingresso estiver ativo, false caso contrário.
      */
-    public Boolean getIAtivo() {
+    public Boolean getIsAtivo() {
         return isAtivo;
     }
 
@@ -110,7 +111,7 @@ public class Ingresso {
      *
      * @param isAtivo O novo estado do ingresso.
      */
-    public void setIAtivo(Boolean isAtivo) {
+    public void setIsAtivo(Boolean isAtivo) {
         this.isAtivo = isAtivo;
     }
 
@@ -179,5 +180,15 @@ public class Ingresso {
     @Override
     public int hashCode() {
         return Objects.hash(evento, preco, assento);
+    }
+
+    @Override
+    public String toString() {
+        return "Ingresso{" +
+                "evento=" + evento.getNome() +
+                ", preço=" + preco +
+                ", assento='" + assento +
+                ", Status=" + isAtivo + '\'' +
+                '}';
     }
 }
