@@ -1,5 +1,15 @@
 [
   {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
     "login": "johndoe",
     "senha": "senha123",
     "nome": "John Doe",
@@ -8,6 +18,190 @@
     "admin": false,
     "ingressos": [],
     "formasDePagamento": []
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "johndoe",
+    "senha": "senha123",
+    "nome": "John Doe",
+    "cpf": "12345678901",
+    "email": "john.doe@example.com",
+    "admin": false,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "johndoe",
+    "senha": "senha123",
+    "nome": "John Doe",
+    "cpf": "12345678901",
+    "email": "john.doe@example.com",
+    "admin": false,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "johndoe",
+    "senha": "senha123",
+    "nome": "John Doe",
+    "cpf": "12345678901",
+    "email": "john.doe@example.com",
+    "admin": false,
+    "ingressos": [],
+    "formasDePagamento": [
+      {
+        "tipo": "Cartao",
+        "numeroCartao": "1234567812345678",
+        "nome": "John Doe",
+        "forma": "Cartão de Crédito"
+      },
+      {
+        "tipo": "Boleto",
+        "codigoBoleto": "BOLETO-123456",
+        "forma": "Boleto Bancário"
+      }
+    ]
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "johndoe",
+    "senha": "senha123",
+    "nome": "John Doe",
+    "cpf": "12345678901",
+    "email": "john.doe@example.com",
+    "admin": false,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "johndoe",
+    "senha": "senha123",
+    "nome": "John Doe",
+    "cpf": "12345678901",
+    "email": "john.doe@example.com",
+    "admin": false,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "johndoe",
+    "senha": "senha123",
+    "nome": "John Doe",
+    "cpf": "12345678901",
+    "email": "john.doe@example.com",
+    "admin": false,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "admin",
+    "senha": "senha123",
+    "nome": "Admin User",
+    "cpf": "00000000000",
+    "email": "admin@example.com",
+    "admin": true,
+    "ingressos": [],
+    "formasDePagamento": []
+  },
+  {
+    "login": "johndoe",
+    "senha": "senha123",
+    "nome": "John Doe",
+    "cpf": "12345678901",
+    "email": "john.doe@example.com",
+    "admin": false,
+    "ingressos": [],
+    "formasDePagamento": [
+      {
+        "tipo": "Cartao",
+        "numeroCartao": "1234567812345678",
+        "nome": "John Doe",
+        "forma": "Cartão de Crédito"
+      },
+      {
+        "tipo": "Boleto",
+        "codigoBoleto": "BOLETO-123456",
+        "forma": "Boleto Bancário"
+      }
+    ]
   },
   {
     "login": "admin",

@@ -1,5 +1,11 @@
 package vendaingressos;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+
 public abstract class Pagamento {
     public String forma;
 
@@ -14,3 +20,5 @@ public abstract class Pagamento {
         this.forma = forma;
     }
 }
+
+

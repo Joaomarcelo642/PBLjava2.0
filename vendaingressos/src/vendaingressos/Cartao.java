@@ -12,7 +12,6 @@ public class Cartao extends Pagamento {
         this.nome = nome;
     }
 
-
     public String getNumero() {
         return numeroCartao;
     }

@@ -1,0 +1,8 @@
+Olá John Doe,
+Sua compra foi confirmada com sucesso!
+Detalhes da compra:
+Evento: Show de Rock
+Assento: A1
+Preço: R$1.0
+Data do evento: Wed Sep 10 00:25:44 BRT 2025
+Obrigado por sua compra!

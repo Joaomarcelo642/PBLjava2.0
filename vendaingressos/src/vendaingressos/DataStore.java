@@ -18,6 +18,7 @@ public class DataStore {
     private static final Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .excludeFieldsWithModifiers(Modifier.STATIC, Modifier.FINAL, Modifier.TRANSIENT)
+            .registerTypeAdapter(Pagamento.class, new PagamentoAdapter())
             .create();
 
     //Métodos para salvar dados
@@ -27,7 +28,6 @@ public class DataStore {
     public void salvarEventos(List<Evento> eventos) {
         salvarDados(EVENTOS_JSON, eventos);
     }
-
     public void salvarCompras(List<Compra> compras) {
         salvarDados(COMPRAS_JSON, compras);
     }

@@ -22,7 +22,7 @@ import vendaingressos.*;
 public class ControllerTest {
 
     @Test
-    public void testCadastrarEventoPorAdmin() {
+    public void testCadastrarEventoPorAdminEListarEventos() {
         Controller controller = new Controller();
         Usuario admin = controller.cadastrarUsuario("admin", "senha123", "Admin User", "00000000000", "admin@example.com", true);
 

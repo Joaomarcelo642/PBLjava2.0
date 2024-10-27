@@ -110,13 +110,10 @@ public class Controller {
                 if (evento.getAssentosDisponiveis().contains(assento)) {
                     Ingresso ingresso = new Ingresso(evento, 1, assento);
                     usuario.getIngressos().add(ingresso);
-
-//                    if (!usuarios.contains(usuario)) {
-//                        usuarios.add(usuario);
-//                    }
-
                     dataStore.salvarUsuarios(usuarios);
-                    compras.add(new Compra(ingresso, usuario));
+                    Compra compra = new Compra(ingresso, usuario);
+                    compras.add(compra);
+                    compra.emailConfirmacao();
                     evento.removerAssento(assento);
                     dataStore.salvarCompras(compras);
                     dataStore.salvarEventos(eventos);
@@ -145,8 +142,11 @@ public class Controller {
             throw new IllegalArgumentException("Ingresso não encontrado para este usuário.");
         }
 
+        boolean compraEncontrada = false;
+
         for (Compra compra : compras) {
             if (compra.getUsuario().equals(usuario) && compra.getIngresso().equals(ingresso)) {
+                compraEncontrada = true;
                 boolean cancelado = ingresso.cancelar();
                 if (cancelado) {
                     usuario.getIngressos().remove(ingresso);
@@ -159,12 +159,16 @@ public class Controller {
                 } else {
                     return false;
                 }
-            } else {
-                throw new RuntimeException("Erro no cancelamento da compra");
             }
         }
+
+        if (!compraEncontrada) {
+            throw new RuntimeException("Erro no cancelamento da compra: compra não encontrada para o usuário e ingresso especificados.");
+        }
+
         return null;
     }
+
 
     /**
      * Lista todos os eventos disponíveis no sistema.
@@ -202,4 +206,5 @@ public class Controller {
         usuario.getFormasDePagamento().add(boleto);
         dataStore.salvarUsuarios(usuarios);
     }
+
 }
