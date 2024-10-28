@@ -94,19 +94,4 @@ public class UsuarioTest {
         assertEquals("novasenha123", usuario.getSenha());
     }
 
-//    @Test
-//    public void testAdicionarFormaDePagamento() {
-//        Usuario usuario = new Usuario("johndoe", "senha123", "John Doe", "12345678901", "john.doe@example.com", false);
-//
-//        Pagamento cartao = new Cartao(usuario, "1234 5678 9123 4567", "John Doe");
-//        usuario.adicionarFormaDePagamento(cartao);
-//        Pagamento boleto = new Boleto("23798.12345.34567.890123.456789");
-//        usuario.adicionarFormaDePagamento(boleto);
-//
-//        List<Pagamento> formasDePagamento = usuario.listarFormasDePagamento();
-//
-//        assertEquals(2, formasDePagamento.size());
-//        assertEquals("Cartão de crédito", formasDePagamento.get(0).getForma());
-//        assertEquals("Boleto Bancário", formasDePagamento.get(1).getForma());
-//    }
 }

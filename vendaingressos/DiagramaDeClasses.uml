@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>vendaingressos</OriginalElement>
+  <nodes>
+    <node x="-4044.2355555555555" y="2112.695555555556">vendaingressos.Ingresso</node>
+    <node x="-3571.7888888888892" y="1069.4077777777782">vendaingressos.Compra</node>
+    <node x="-4408.68" y="1550.6977777777774">vendaingressos.Pagamento</node>
+    <node x="-4104.962222222222" y="1083.4044444444444">vendaingressos.Usuario</node>
+    <node x="-4451.18" y="1274.1644444444446">vendaingressos.PagamentoAdapter</node>
+    <node x="-4432.18" y="1747.46">vendaingressos.Boleto</node>
+    <node x="-3561.2888888888892" y="1424.2366666666671">vendaingressos.Feedback</node>
+    <node x="-4414.18" y="1944.2222222222226">vendaingressos.Cartao</node>
+    <node x="-2925.9733333333334" y="1530.5133333333333">vendaingressos.Controller</node>
+    <node x="-3669.2911111111107" y="2112.695555555556">vendaingressos.Evento</node>
+    <node x="-2815.4733333333334" y="2025.6088888888887">vendaingressos.DataStore</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Evento" relationship="TO_MANY">
+      <point x="-172.52666666666664" y="188.9996666666666" />
+      <point x="-2843.5" y="2073.0" />
+      <point x="-3507.791" y="2073.0" />
+      <point x="1.1111111052741762E-4" y="-236.99955555555607" />
+    </edge>
+    <edge source="vendaingressos.PagamentoAdapter" target="vendaingressos.Boleto" relationship="CREATE">
+      <point x="136.0" y="44.49955555555539" />
+      <point x="-4177.68" y="1903.0" />
+      <point x="-4313.68" y="1903.0" />
+      <point x="0.0" y="57.0" />
+    </edge>
+    <edge source="vendaingressos.Feedback" target="vendaingressos.Usuario" relationship="TO_ONE">
+      <point x="-1.1111111098216497E-4" y="-129.00044444444438" />
+      <point x="-3449.289" y="1054.0" />
+      <point x="-3921.462" y="1054.0" />
+      <point x="2.222222224190773E-4" y="-369.0004444444444" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Boleto" relationship="CREATE">
+      <point x="-254.9996666666666" y="-3.3333333340124227E-4" />
+      <point x="-3309.289" y="1719.513" />
+      <point x="-3309.289" y="1903.0" />
+      <point x="-4313.68" y="1903.0" />
+      <point x="0.0" y="57.0" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Cartao" relationship="CREATE">
+      <point x="3.3333333340124227E-4" y="188.9996666666666" />
+      <point x="-2670.973" y="1968.0" />
+      <point x="-3845.736" y="1968.0" />
+      <point x="-3845.736" y="2037.222" />
+      <point x="100.5" y="-2.2222222264645097E-4" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Usuario" relationship="CREATE">
+      <point x="-255.0" y="-15.000333333333401" />
+      <point x="183.5" y="252.10855555555554" />
+    </edge>
+    <edge source="vendaingressos.PagamentoAdapter" target="vendaingressos.Cartao" relationship="CREATE">
+      <point x="137.5" y="-4.444444446107809E-4" />
+      <point x="-4122.462" y="1318.664" />
+      <point x="-4122.462" y="1968.0" />
+      <point x="-3845.736" y="1968.0" />
+      <point x="-3845.736" y="2037.222" />
+      <point x="100.5" y="-2.2222222264645097E-4" />
+    </edge>
+    <edge source="vendaingressos.Usuario" target="vendaingressos.Ingresso" relationship="TO_MANY">
+      <point x="183.50022222222242" y="-4.4444444438340724E-4" />
+      <point x="-3703.0" y="1452.404" />
+      <point x="-3703.0" y="2349.696" />
+      <point x="102.99955555555562" y="4.444444439286599E-4" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Ingresso" relationship="CREATE">
+      <point x="255.0" y="0.0" />
+      <point x="-2353.4733333333334" y="1719.5133333333333" />
+      <point x="-2353.4733333333334" y="2649.195555555556" />
+      <point x="-3941.2355555555555" y="2649.195555555556" />
+      <point x="0.0" y="237.0" />
+    </edge>
+    <edge source="vendaingressos.Ingresso" target="vendaingressos.Evento" relationship="TO_ONE">
+      <point x="-4.4444444438340724E-4" y="-236.99955555555607" />
+      <point x="-3941.236" y="2073.0" />
+      <point x="-3507.791" y="2073.0" />
+      <point x="1.1111111052741762E-4" y="-236.99955555555607" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Feedback" relationship="CREATE">
+      <point x="-14.999666666666599" y="-189.0" />
+      <point x="-2685.973" y="1568.2366666666671" />
+      <point x="112.0" y="15.0" />
+    </edge>
+    <edge source="vendaingressos.DataStore" target="vendaingressos.PagamentoAdapter" relationship="CREATE">
+      <point x="0.0" y="165.0" />
+      <point x="-2650.9733333333334" y="2604.195555555556" />
+      <point x="-4468.68" y="2604.195555555556" />
+      <point x="-4468.68" y="1318.6644444444446" />
+      <point x="-137.5" y="0.0" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Usuario" relationship="TO_MANY">
+      <point x="3.3333333340124227E-4" y="-189.0003333333334" />
+      <point x="-2670.973" y="1054.0" />
+      <point x="-3921.462" y="1054.0" />
+      <point x="2.222222224190773E-4" y="-369.0004444444444" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.DataStore" relationship="CREATE">
+      <point x="35.0" y="189.0" />
+      <point x="15.0" y="-165.00000000000023" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.DataStore" relationship="TO_ONE">
+      <point x="20.0" y="189.0" />
+      <point x="0.0" y="-165.00000000000023" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Compra" relationship="TO_MANY">
+      <point x="-44.9996666666666" y="-189.0" />
+      <point x="-2715.973" y="1249.4077777777782" />
+      <point x="122.5" y="15.0" />
+    </edge>
+    <edge source="vendaingressos.Compra" target="vendaingressos.Ingresso" relationship="TO_ONE">
+      <point x="14.999888888889018" y="-165.0" />
+      <point x="-3434.289" y="1039.0" />
+      <point x="-4483.68" y="1039.0" />
+      <point x="-4483.68" y="2349.695555555556" />
+      <point x="-103.0" y="0.0" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Compra" relationship="CREATE">
+      <point x="-29.9996666666666" y="-189.0" />
+      <point x="-2700.973" y="1234.4077777777782" />
+      <point x="122.5" y="0.0" />
+    </edge>
+    <edge source="vendaingressos.Evento" target="vendaingressos.Feedback" relationship="TO_MANY">
+      <point x="58.50222222222146" y="-237.0" />
+      <point x="0.0" y="129.0" />
+    </edge>
+    <edge source="vendaingressos.Controller" target="vendaingressos.Evento" relationship="CREATE">
+      <point x="255.0" y="15.0" />
+      <point x="-2368.4733333333334" y="1734.5133333333333" />
+      <point x="-2368.4733333333334" y="2634.195555555556" />
+      <point x="-3507.7911111111107" y="2634.195555555556" />
+      <point x="0.0" y="237.0" />
+    </edge>
+    <edge source="vendaingressos.Boleto" target="vendaingressos.Pagamento" relationship="GENERALIZATION">
+      <point x="0.0" y="-57.0" />
+      <point x="0.0" y="57.00022222222265" />
+    </edge>
+    <edge source="vendaingressos.Usuario" target="vendaingressos.Pagamento" relationship="TO_MANY">
+      <point x="-183.5" y="155.29333333333307" />
+      <point x="95.0" y="0.0" />
+    </edge>
+    <edge source="vendaingressos.Cartao" target="vendaingressos.Pagamento" relationship="GENERALIZATION">
+      <point x="-100.5" y="-2.2222222264645097E-4" />
+      <point x="-4449.68" y="2037.222" />
+      <point x="-4449.68" y="1707.0" />
+      <point x="-4313.68" y="1707.0" />
+      <point x="0.0" y="57.00022222222265" />
+    </edge>
+    <edge source="vendaingressos.Compra" target="vendaingressos.Usuario" relationship="TO_ONE">
+      <point x="-122.5" y="0.0" />
+      <point x="183.5" y="-217.99666666666621" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.5518087063151441" showDependencies="true" x="-3436.9999999999995" y="1844.5" />
+  <SelectedNodes>
+    <node>vendaingressos.Compra</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -189,11 +189,27 @@ public class Controller {
         return usuario.getIngressos();
     }
 
-    public void adicionarFeedback(Evento evento, Usuario usuario, String avaliacao, String comentario){
-        Feedback feedback = new Feedback(usuario, avaliacao, comentario);
-        evento.getFeedbacks().add(feedback);
-        dataStore.salvarEventos(eventos);
+    public void adicionarFeedback(Evento evento, Usuario usuario, String avaliacao, String comentario) {
+        boolean eventoEncontrado = false;
+
+        for (Evento evento2 : eventos) {
+            if (evento2.getNome().equals(evento.getNome())) {
+                eventoEncontrado = true;
+                if (evento.isAtivo()) {
+                    throw new RuntimeException("Evento ainda não realizado");
+                } else {
+                    Feedback feedback = new Feedback(usuario, avaliacao, comentario);
+                    evento.getFeedbacks().add(feedback);
+                    dataStore.salvarEventos(eventos);
+                }
+                break;
+            }
+        }
+        if (!eventoEncontrado) {
+            throw new IllegalArgumentException("Evento " + evento.getNome() + " não encontrado ou inativo.");
+        }
     }
+
 
     public void adicionarCartao(Usuario usuario, String numeroCartao, String nome) {
         Cartao cartao = new Cartao(numeroCartao, nome);
